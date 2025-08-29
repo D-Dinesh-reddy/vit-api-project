@@ -6,13 +6,37 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+    res.status(200).send(`
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>API Status</title>
+            <style>
+                body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f8f9fa; }
+                h1 { color: #2E7D32; }
+                p { color: #333; font-size: 1.1em;}
+                code { background-color: #e9ecef; padding: 4px 8px; border-radius: 4px; font-family: monospace; }
+            </style>
+        </head>
+        <body>
+            <h1>✅ VIT API is Live</h1>
+            <p>This API is running correctly. The main functionality is at the <code>/bfhl</code> endpoint, which requires a <code>POST</code> request.</p>
+        </body>
+        </html>
+    `);
+});
+
 app.post('/bfhl', (req, res) => {
     try {
         const data = req.body.data;
 
         const userId = "duggana_palli_29082003";
-const email = "duggana.palli2022@vitstudent.ac.in";
-const rollNumber = "22BKT0041";
+        const email = "reddy.dineshd09@gmail.com";
+        const rollNumber = "22BKT0041";
+
         const odd_numbers = [];
         const even_numbers = [];
         const alphabets = [];
